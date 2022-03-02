@@ -70,6 +70,8 @@ label {
   font-weight: bold;
   cursor: pointer;
   border-radius: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .btn:hover {

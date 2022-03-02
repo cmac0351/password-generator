@@ -5,6 +5,7 @@ const includeUppercaseElement = document.getElementById("includeUppercase")
 const includeNumbersElement = document.getElementById("includeNumbers")
 const includeSymbolsElement = document.getElementById("includeSymbols")
 const passwordDisplay = document.getElementById("passwordDisplay")
+const copyPasswordButton = document.getElementById("copyPasswordButton")
 
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
@@ -18,6 +19,8 @@ const SYMBOL_CHAR_CODES = [
 
 characterAmountNumber.addEventListener("input", syncCharacterAmount)
 characterAmountRange.addEventListener("input", syncCharacterAmount)
+
+copyPasswordButton.addEventListener("click", copyPassword)
 
 form.addEventListener("submit", (e) => {
   e.preventDefault()
@@ -54,4 +57,10 @@ function syncCharacterAmount(e) {
   const value = e.target.value
   characterAmountNumber.value = value
   characterAmountRange.value = value
+}
+
+function copyPassword() {
+  copyText = document.getElementById("passwordDisplay")
+  console.log(copyText.innerText)
+  navigator.clipboard.writeText(copyText.innerText)
 }
